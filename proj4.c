@@ -78,8 +78,8 @@ int main()
         column--;
         //Checking Validity of input
         if(column < 0 || column > 6){
-            printf("Invalid input.\n");
             print_board(board);
+            printf("Invalid input.\n");
             while (getchar() != '\n'); 
             continue;
             }
