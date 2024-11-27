@@ -30,7 +30,7 @@ int has_won(int board[][7]) {
                 return 1;
             }
             else if(board[i][j] == -1 && board[i + 1][j + 1] == -1 && board[i + 2][j + 2] == -1 && board[i + 3][j + 3] == -1){
-                return 1;
+                return -1;
             }
         }
     }
@@ -40,7 +40,7 @@ int has_won(int board[][7]) {
                 return 1;
             }
             else if(board[i + 3][j] == -1 && board[i + 2][j + 1] == -1 && board[i + 1][j + 2] == -1 && board[i][j + 3] == -1){
-                return 1;
+                return -1;
             }
         }
     }
