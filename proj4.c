@@ -342,11 +342,11 @@ int main()
         }
         //Checking if players want to play again
         if(result == 1 || result == -1 || draw_check == 42){
-            printf("Would you like to play again? y/n");
+            printf("Would you like to play again? y/n\n");
             scanf("%s", &replay);
             while(replay != 'y' && replay != 'n'){
                 printf("Invalid input.\n");
-                printf("Would you like to play again? y/n");
+                printf("Would you like to play again? y/n\n");
                 scanf("%s", &replay);
             }
             if(replay == 'y'){
