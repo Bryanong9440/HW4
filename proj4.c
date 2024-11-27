@@ -148,6 +148,8 @@ int main()
                 }
                 if(replay_check == 'y' || replay_check == 'n'){
                     break;
+                }else{
+                    continue;
                 }
             }
             if(replay_check == 'y'){
