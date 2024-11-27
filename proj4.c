@@ -142,7 +142,7 @@ int main()
                 printf("Would you like to play again? y/n");
                 scanf("%s", &replay);
             }
-            if(replay == 'y'){
+            if(replay_check == 'y'){
                 i = 0;
                 draw_check = 0;
                 //reset board here
@@ -155,10 +155,12 @@ int main()
                 turn = 1;
                 draw_check = 0;
                 continue;
-            }else if(replay == 'n'){
+            }else if(replay_check == 'n'){
                 break;
             }
         }
     }
+    return 0;
+}
     return 0;
 }
