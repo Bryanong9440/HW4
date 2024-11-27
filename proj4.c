@@ -71,8 +71,6 @@ int main()
     char replay = '\0';
     //Looping turns
     for(int i = 0; i < 100; i++){
-        
-        
         printf("Please enter a move:\n");
         printf(">>> ");
         int column;
@@ -127,6 +125,9 @@ int main()
             scanf("%s", &replay);
             while(replay != 'y' && replay != 'n'){
                 printf("Invalid input.\n");
+                printf("Please enter a move:\n");
+                printf(">>> ");
+                print_board(board);
                 printf("Would you like to play again? y/n");
                 scanf("%s", &replay);
             }
