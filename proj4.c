@@ -340,13 +340,10 @@ int main()
         if(draw_check == 42){
             printf("The game was a draw!\n");
         }
-        printf("drawcheck %d\n", draw_check);
-        printf("result is: %d\n", result);
         //Checking if players want to play again
         if(result == 1 || result == -1 || draw_check == 42){
             printf("Would you like to play again? y/n\n");
             scanf("%s", &replay);
-            //scanf();
             while(replay != 'y' && replay != 'n'){
                 printf("Invalid input.\n");
                 printf("Would you like to play again? y/n\n");
