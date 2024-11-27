@@ -127,7 +127,7 @@ int main()
             scanf("%s", &replay);
             while(replay != 'y' && replay != 'n'){
                 printf("Invalid input.\n");
-                printf("Would you like to play again? y/n\n");
+                printf("Would you like to play again? y/n");
                 scanf("%s", &replay);
             }
             if(replay == 'y'){
