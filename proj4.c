@@ -79,9 +79,11 @@ int main()
         //Checking Validity of input
         if(column < 0 || column > 6){
             printf("Invalid input.\n");
+            print_board(board);
             while (getchar() != '\n'); 
             continue;
             }
+        //Entering input into board
         if(board[5][column] == 0){
             board[5][column] = turn;
         }
@@ -99,9 +101,6 @@ int main()
         }
         else if(board[0][column] == 0){
             board[0][column] = turn;
-        }else{
-            printf("Invalid input.\n");
-            continue;
         }
         print_board(board);
         //Checking for winner
@@ -125,9 +124,6 @@ int main()
             scanf("%s", &replay);
             while(replay != 'y' && replay != 'n'){
                 printf("Invalid input.\n");
-                printf("Please enter a move:\n");
-                printf(">>> ");
-                print_board(board);
                 printf("Would you like to play again? y/n");
                 scanf("%s", &replay);
             }
