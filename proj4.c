@@ -129,7 +129,15 @@ int main()
         if(result == 1 || result == -1 || draw_check == 42){
             printf("Would you like to play again? y/n");
             scanf("%s", &replay);
-            while(replay != 'y' && replay != 'n'){
+            char replay_check;
+            if(strlen(replay) != 1){
+                printf("Invalid input.\n");
+                printf("Would you like to play again? y/n");
+                scanf("%s", &replay);
+            }else{
+                replay_check = replay[0];
+            }
+            while(replay_check != 'y' && replay_check != 'n'){
                 printf("Invalid input.\n");
                 printf("Would you like to play again? y/n");
                 scanf("%s", &replay);
@@ -146,7 +154,6 @@ int main()
                 print_board(board);
                 turn = 1;
                 draw_check = 0;
-                replay[100] = '\0';
                 continue;
             }else if(replay == 'n'){
                 break;
