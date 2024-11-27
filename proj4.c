@@ -73,8 +73,15 @@ int main()
     for(int i = 0; i < 100; i++){
         printf("Please enter a move:\n");
         printf(">>> ");
-        int column;
-        scanf("%i", &column);
+        char input_string[100];
+        scanf("%s", &input_string);
+        if(strlen(input_string) != 1){
+            print_board(board);
+            printf("Invalid input.\n");
+            while (getchar() != '\n'); 
+            continue;
+        }
+        int column = input_string[0] - 48;
         column--;
         //Checking Validity of input
         if(column < 0 || column > 6){
