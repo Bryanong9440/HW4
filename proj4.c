@@ -269,9 +269,9 @@ void print_board(int board[][7]) {
     for(int i = 0; i < 6; i++) {
         for(int j = 0; j < 7; j++) {
             if(board[i][j] == 1) {
-                printf("X");
+                printf("x");
             }else if (board[i][j] == -1) {
-                printf("O");
+                printf("o");
             }else{
                 printf("_");
             }
