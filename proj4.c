@@ -2,56 +2,27 @@
 
 //checking if someone has won
 int has_won(int board[][7]){
-    for(int i = 0; i < 7; i++){
-        if(board[i][0] == 1 && board[i][1] == 1 && board[i][2] == 1 && board [i][3] == 1){
-            return 1;
-        }
-        if(board[i][1] == 1 && board[i][2] == 1 && board[i][3] == 1 && board [i][4] == 1){
-            return 1;
-        }
-        if(board[i][2] == 1 && board[i][3] == 1 && board[i][4] == 1 && board [i][5] == 1){
-            return 1;
-        }
-        if(board[i][3] == 1 && board[i][4] == 1 && board[i][5] == 1 && board [i][6] == 1){
-            return 1;
-        }
-        if(board[i][0] == -1 && board[i][1] == -1 && board[i][2] == -1 && board [i][3] == -1){
-            return -1;
-        }
-        if(board[i][1] == -1 && board[i][2] == -1 && board[i][3] == -1 && board [i][4] == -1){
-            return -1;
-        }
-        if(board[i][2] == -1 && board[i][3] == -1 && board[i][4] == -1 && board [i][5] == -1){
-            return -1;
-        }
-        if(board[i][3] == -1 && board[i][4] == -1 && board[i][5] == -1 && board [i][6] == -1){
-            return -1;
-        }
-        if(board[0][i] == 1 && board[1][i] == 1 && board[2][i] == 1 && board [3][i] == 1){
-            return 1;
-        }
-        if(board[1][i] == 1 && board[2][i] == 1 && board[3][i] == 1 && board [4][i] == 1){
-            return 1;
-        }
-        if(board[2][i] == 1 && board[3][i] == 1 && board[4][i] == 1 && board [5][i] == 1){
-            return 1;
-        }
-        if(board[0][i] == -1 && board[1][i] == -1 && board[2][i] == -1 && board [3][i] == -1){
-            return -1;
-        }
-        if(board[1][i] == -1 && board[2][i] == -1 && board[3][i] == -1 && board [4][i] == -1){
-            return -1;
-        }
-        if(board[2][i] == -1 && board[3][i] == -1 && board[4][i] == -1 && board [5][i] == -1){
-            return -1;
-        }
-        if(board[j][i] == 1 && board[j+1][i] == 1 && board[j+2][i] == 1 && board[j+3][i] == 1){
+     // Check horizontal and vertical lines
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < 4; j++) {
+            // Check horizontal (i, j) to (i, j+3)
+            if (board[i][j] == 1 && board[i][j+1] == 1 && board[i][j+2] == 1 && board[i][j+3] == 1) {
                 return 1;
-        }
-        if (board[j][i] == -1 && board[j+1][i] == -1 && board[j+2][i] == -1 && board[j+3][i] == -1) {
-            return -1;
-        }
+            }
+            if (board[i][j] == -1 && board[i][j+1] == -1 && board[i][j+2] == -1 && board[i][j+3] == -1) {
+                return -1;
+            }
 
+            // Check vertical (j, i) to (j+3, i)
+            if (board[j][i] == 1 && board[j+1][i] == 1 && board[j+2][i] == 1 && board[j+3][i] == 1) {
+                return 1;
+            }
+            if (board[j][i] == -1 && board[j+1][i] == -1 && board[j+2][i] == -1 && board[j+3][i] == -1) {
+                return -1;
+            }
+        }
+    }
+}
 //Printing board after every move
 void print_board(int board[][7]) {
     for(int i = 0; i < 6; i++) {
@@ -151,8 +122,7 @@ int main()
                 draw_check = 0;
                 replay = '\0';
                 continue;
-            }
-            else if(replay == 'n'){
+            }else if(replay == 'n'){
                 break;
             }
         }
