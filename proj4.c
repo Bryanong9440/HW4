@@ -1,24 +1,42 @@
 #include <stdio.h>
 
 //checking if someone has won
-int has_won(int board[][7]){
-     // Check horizontal and vertical lines
-    for (int i = 0; i < 7; i++) {
-        for (int j = 0; j < 4; j++) {
-            // Check horizontal (i, j) to (i, j+3)
-            if (board[i][j] == 1 && board[i][j+1] == 1 && board[i][j+2] == 1 && board[i][j+3] == 1) {
-                return 1;
-            }
-            if (board[i][j] == -1 && board[i][j+1] == -1 && board[i][j+2] == -1 && board[i][j+3] == -1) {
-                return -1;
+int has_won(int board[][7]) {
+    // Check horizontal and vertical wins
+    for (int row = 0; row < 6; row++) {
+        for (int col = 0; col < 7; col++) {
+            if (board[row][col] == 0) continue; // Skip empty spaces
+
+            // Check horizontal (right direction)
+            if (col + 3 < 7 && 
+                board[row][col] == board[row][col + 1] &&
+                board[row][col] == board[row][col + 2] &&
+                board[row][col] == board[row][col + 3]) {
+                return board[row][col]; // 1 or -1
             }
 
-            // Check vertical (j, i) to (j+3, i)
-            if (board[j][i] == 1 && board[j+1][i] == 1 && board[j+2][i] == 1 && board[j+3][i] == 1) {
-                return 1;
+            // Check vertical (down direction)
+            if (row + 3 < 6 && 
+                board[row][col] == board[row + 1][col] &&
+                board[row][col] == board[row + 2][col] &&
+                board[row][col] == board[row + 3][col]) {
+                return board[row][col]; // 1 or -1
             }
-            if (board[j][i] == -1 && board[j+1][i] == -1 && board[j+2][i] == -1 && board[j+3][i] == -1) {
-                return -1;
+
+            // Check diagonal (down-right direction)
+            if (row + 3 < 6 && col + 3 < 7 &&
+                board[row][col] == board[row + 1][col + 1] &&
+                board[row][col] == board[row + 2][col + 2] &&
+                board[row][col] == board[row + 3][col + 3]) {
+                return board[row][col]; // 1 or -1
+            }
+
+            // Check diagonal (up-right direction)
+            if (row - 3 >= 0 && col + 3 < 7 &&
+                board[row][col] == board[row - 1][col + 1] &&
+                board[row][col] == board[row - 2][col + 2] &&
+                board[row][col] == board[row - 3][col + 3]) {
+                return board[row][col]; // 1 or -1
             }
         }
     }
@@ -99,6 +117,36 @@ int main()
         if(draw_check == 42){
             printf("The game was a draw!\n");
         }
+        //Checking if players want to play again
+        if(result == 1 || result == -1 || draw_check == 42){
+            printf("Would you like to play again? y/n\n");
+            scanf("%s", &replay);
+            while(replay != 'y' && replay != 'n'){
+                printf("Invalid input.\n");
+                printf("Would you like to play again? y/n\n");
+                scanf("%s", &replay);
+            }
+            if(replay == 'y'){
+                i = 0;
+                draw_check = 0;
+                //reset board here
+                for(int i = 0; i < 6; i++){
+                    for(int j = 0; j < 7; j++){
+                        board[i][j] = 0;
+                    }
+                }
+                print_board(board);
+                turn = 1;
+                draw_check = 0;
+                replay = '\0';
+                continue;
+            }else if(replay == 'n'){
+                break;
+            }
+        }
+    }
+    return 0;
+}
         //Checking if players want to play again
         if(result == 1 || result == -1 || draw_check == 42){
             printf("Would you like to play again? y/n\n");
