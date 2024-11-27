@@ -68,7 +68,7 @@ int main()
     print_board(board);
     int turn = 1;
     int draw_check = 0;
-    char replay = '\0';
+    char replay[100];
     //Looping turns
     for(int i = 0; i < 100; i++){
         printf("Please enter a move:\n");
@@ -146,7 +146,7 @@ int main()
                 print_board(board);
                 turn = 1;
                 draw_check = 0;
-                replay = '\0';
+                replay[100] = '\0';
                 continue;
             }else if(replay == 'n'){
                 break;
