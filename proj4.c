@@ -147,33 +147,3 @@ int main()
     }
     return 0;
 }
-        //Checking if players want to play again
-        if(result == 1 || result == -1 || draw_check == 42){
-            printf("Would you like to play again? y/n\n");
-            scanf("%s", &replay);
-            while(replay != 'y' && replay != 'n'){
-                printf("Invalid input.\n");
-                printf("Would you like to play again? y/n\n");
-                scanf("%s", &replay);
-            }
-            if(replay == 'y'){
-                i = 0;
-                draw_check = 0;
-                //reset board here
-                for(int i = 0; i < 6; i++){
-                    for(int j = 0; j < 7; j++){
-                        board[i][j] = 0;
-                    }
-                }
-                print_board(board);
-                turn = 1;
-                draw_check = 0;
-                replay = '\0';
-                continue;
-            }else if(replay == 'n'){
-                break;
-            }
-        }
-    }
-    return 0;
-}
