@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 //checking if someone has won
 int has_won(int board[][7]) {
@@ -160,7 +161,5 @@ int main()
             }
         }
     }
-    return 0;
-}
     return 0;
 }
