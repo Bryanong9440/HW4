@@ -5,7 +5,7 @@
 int has_won(int board[][7]) {
     //Check horizontal and vertical wins
     for(int i = 0; i < 6; i++){
-        for(int j = 0; j < 7; j++){
+        for(int j = 0; j < 4; j++){
             if(board[i][j] == 1 && board[i][j + 1] == 1 && board[i][j + 2] == 1 && board[i][j + 3] == 1){
                 return 1;
             }
@@ -14,7 +14,7 @@ int has_won(int board[][7]) {
             }
         }
     }
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < 3; i++){
         for(int j = 0; j < 7; j++){
             if(board[i][j] == 1 && board[i + 1][j] == 1 && board[i + 2][j] == 1 && board[i + 3][j] == 1){
                 return 1;
@@ -25,8 +25,8 @@ int has_won(int board[][7]) {
         }
     }
     //Check for Diagonal wins
-    for(int i = 0; i < 6; i++){
-        for(int j = 0; j < 7; j++){
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 4; j++){
             if(board[i][j] == 1 && board[i + 1][j + 1] == 1 && board[i + 2][j + 2] == 1 && board[i + 3][j + 3] == 1){
                 return 1;
             }
@@ -35,8 +35,8 @@ int has_won(int board[][7]) {
             }
         }
     }
-    for(int i = 0; i < 6; i++){
-        for(int j = 0; j < 7; j++){
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 4; j++){
             if(board[i + 3][j] == 1 && board[i + 2][j + 1] == 1 && board[i + 1][j + 2] == 1 && board[i][j + 3] == 1){
                 return 1;
             }
