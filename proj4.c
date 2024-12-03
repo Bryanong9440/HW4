@@ -139,10 +139,11 @@ int main()
                 replay_check = replay[0];
             }
             while(replay_check != 'y' && replay_check != 'n'){
-                if(strlen(replay) != 1){
+                if(strlen(replay) != 1 || strcmp(replay, "y") != 0 && strcmp(replay, "n") != 0){
                     printf("Invalid input.\n");
                     printf("Would you like to play again? y/n");
                     scanf("%s", &replay);
+                    continue;
                 }else{
                     replay_check = replay[0];
                 }
