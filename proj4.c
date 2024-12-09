@@ -45,6 +45,7 @@ int has_won(int board[][7]) {
             }
         }
     }
+    return 0;
 }
 //Printing board after every move
 void print_board(int board[][7]) {
